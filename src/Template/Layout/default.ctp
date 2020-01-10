@@ -68,7 +68,7 @@ $title = 'Work<a href="">4</a>the<a href="">noob</a>';
     
     <?= $this->Flash->render('auth') ?>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix" style="margin: 130px !important; margin-top: 30px !important;">
+    <div class="container clearfix" style="margin: 130px !important; margin-top: 30px !important; min-height: 0;">
         <?= $this->fetch('content') ?>
     </div>
     <footer>
