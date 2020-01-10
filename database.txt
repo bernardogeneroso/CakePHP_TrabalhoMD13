@@ -1,0 +1,25 @@
+INSERT INTO `users` (`id`, `username`, `password`, `created`) VALUES (NULL, 'admin', 'admin', '2020-01-09 00:00:00');
+INSERT INTO `users` (`id`, `username`, `password`, `created`) VALUES (NULL, 'manel', 'manel123', '2020-01-09 00:00:00');
+INSERT INTO `users` (`id`, `username`, `password`, `created`) VALUES (NULL, 'bri', 'bri123', '2020-01-09 00:00:00');
+
+INSERT INTO `boards` (`id`, `id_user`, `nomeboard`, `descricao`, `created`, `modified`) VALUES (NULL, '3', 'Primeira Board', 'A primeira board, precisa de ter uma boa descrição.', '2020-01-09 00:00:00', '');
+INSERT INTO `boards` (`id`, `id_user`, `nomeboard`, `descricao`, `created`, `modified`) VALUES (NULL, '4', 'Segunda Board', 'A segunda board tem uma descrição muito maior do que a primeira Board. Continua...', '2020-01-09 00:00:00', '');
+INSERT INTO `boards` (`id`, `id_user`, `nomeboard`, `descricao`, `created`, `modified`) VALUES (NULL, '5', 'Terceira Board', 'Esta terceira Board, neste momoento considerada nova, tem o texto maior do que a segunda board e a primeira board.', '2020-01-09 00:00:00', '');
+
+INSERT INTO `listatarefas` (`id`, `id_board`, `nomeTarefa`, `descricao`, `dataVencimento`) VALUES (NULL, '209', 'Primeira Tarefa', 'O objetivo desta prmeira tarefa é ser a primeira tarefa.', '2020-01-09 00:00:00');
+INSERT INTO `listatarefas` (`id`, `id_board`, `nomeTarefa`, `descricao`, `dataVencimento`) VALUES (NULL, '210', 'Segunda tarefa', 'A segunda tarefa tem como objetivo ser a segunda tarefa nesta tabela.', '2020-01-20 15:00:00');
+INSERT INTO `listatarefas` (`id`, `id_board`, `nomeTarefa`, `descricao`, `dataVencimento`) VALUES (NULL, '211', 'Terceira tarefa', 'A terceira tarefa tem como objetivo de terceira a ser tarefa.', '2020-01-20 15:00:00');
+
+CREATE TABLE `boardsutilizadores` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `id_board` int(11) NOT NULL,
+  `created` DATETIME NOT NULL,
+  PRIMARY KEY(`id`),
+  FOREIGN KEY(`id_user`) REFERENCES users(`id`) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY(`id_board`) REFERENCES boards(`id`) ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `boardsutilizadores` (`id`, `id_user`, `id_board`, `created`) VALUES ('', '3', '209', '2020-01-10 00:00:00');
+INSERT INTO `boardsutilizadores` (`id`, `id_user`, `id_board`, `created`) VALUES ('', '4', '210', '2020-01-10 00:00:00');
+INSERT INTO `boardsutilizadores` (`id`, `id_user`, `id_board`, `created`) VALUES ('', '5', '211', '2020-01-10 00:00:00');
